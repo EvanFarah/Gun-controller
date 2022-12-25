@@ -4,13 +4,20 @@ import gpiozero
 from gpiozero import Button
 import mouse
 import keyboard
-button = Button('pin number') #when you find the pin number, replace 'pin number' with the actual pin number
-button.when_pressed = mouse.click('left') # change it to button when you find the pin number
-button2 = Button('other pin number') # type it in once, you find it.
+button = Button(22)
+button.when_pressed = mouse.click('left') 
+button2 = Button(36)
 button2.when_pressed = keyboard.press('r')
-button3 = Button('pin number') # replace with real pin number oce you find it.
-button3.when_pressed = keyboard.press('f')
-# add joystick and other stuff later
+button3 = Button(13) 
+button3.when_pressed = keyboard.press('E')
+button4 = Button(15)
+button4.when_pressed = keyboard.press('up arrow')
+button5 = Button(29)
+button5.when_pressed = keyboard.press('down arrow')
+button6 = Button(31)
+button6.when_pressed = keyboard.press('left arrow')
+button7 = Button(37)
+button7.when_pressed = keyboard.press('right arrow')
 from smbus2 import SMBus
 import math
 
@@ -75,12 +82,15 @@ def read_distance():
     while True:
         message = f"{sensor.value:1.2f} "
         return message
-if message >= 1:
  def hi():
-  if message >= 1:
+  if message <= 3:
    mouse.click('right')
   if  message is None:
    mouse.click('right')
+
+if message <= 3:
+    while True:
+    hi():
 
 
 read_distance()
