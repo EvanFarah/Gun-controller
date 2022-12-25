@@ -4,6 +4,9 @@ import gpiozero
 from gpiozero import Button
 import mouse
 import keyboard
+from PCF8574 import PCF8574_GPIO
+from Adafruit_LCD1602 import Adafruit_CharLCD
+from datetime import datetime
 button = Button(22)
 button.when_pressed = mouse.click('left') 
 button2 = Button(36)
@@ -18,6 +21,14 @@ button6 = Button(31)
 button6.when_pressed = keyboard.press('left arrow')
 button7 = Button(37)
 button7.when_pressed = keyboard.press('right arrow')
+def loop(): 
+    mcp.output(3,1) # 
+    lcd.begin(16,2) # set number of LCD lines and columns 
+    while(True): 
+        lcd.setCursor(0,0) # set cursor position lcd.message('GAME ON')# display CPU temperature 
+        lcd.message( get_time_now() ) # display the time
+
+        
 from smbus2 import SMBus
 import math
 
