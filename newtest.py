@@ -1,4 +1,3 @@
-#usr/bin/python3
 from ADCDevice import *
 import gpiozero
 from gpiozero import Button
@@ -79,7 +78,7 @@ def joystickfunction():
   val_Z = gpiozero.input(12) # read digital value of axis Z 
 val_Y = adc.analogRead(0) # read analog value of axis X and Y 
 val_X = adc.analogRead(1)
-mouse.move(vaal_x,val_y,val_z)
+mouse.move(val_x,val_y,val_z)
 def safe_exit(signum, frame):
  from threading import Thread
 from gpiozero import DistanceSensor
